@@ -4,7 +4,7 @@ class BootStrap {
 
     def init = { servletContext ->
         // create ROLE_USER
-        def roleUser = Role.findAllByAuthority("ROLE_USER") ?: new Role(authority: "ROLE_USER").save(true)
+        def roleUser = Role.findByAuthority("ROLE_USER") ?: new Role(authority: "ROLE_USER").save(true)
 
         // create 2 test users
         def user1 = User.findByUsername("user1") ?: new User(username: "user1", password: "password").save(true)
